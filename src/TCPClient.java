@@ -39,7 +39,12 @@ public class TCPClient {
                 System.out.println("Address cannot be empty. Please enter again:");
                 address = reader.readLine();
             }
-
+    System.out.print("Phone Number: ");
+            address = reader.readLine();
+            while (address.isEmpty()) {
+                System.out.println("Address cannot be empty. Please enter again:");
+                address = reader.readLine();
+            }
             // Prompt user for phone number
             System.out.print("Phone Number: ");
             phoneNumber = reader.readLine();
