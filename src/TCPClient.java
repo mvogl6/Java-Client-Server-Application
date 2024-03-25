@@ -12,7 +12,7 @@ import java.net.*;
 
 public class TCPClient {
     private static final String SERVER_ADDRESS = "localhost";
-    private static final int SERVER_PORT = 1135; // Port based on student ID
+    private static final int SERVER_PORT = 1135; // Port based on my student ID
 
     public static void main(String[] args) {
         try (Socket socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
@@ -39,15 +39,14 @@ public class TCPClient {
                 System.out.println("Address cannot be empty. Please enter again:");
                 address = reader.readLine();
             }
-    System.out.print("Phone Number: ");
-            address = reader.readLine();
-            while (address.isEmpty()) {
-                System.out.println("Phone number cannot be empty. Please enter again:");
-                address = reader.readLine();
-            }
+
             // Prompt user for phone number
             System.out.print("Phone Number: ");
             phoneNumber = reader.readLine();
+            while (phoneNumber.isEmpty()) {
+                System.out.println("Phone number cannot be empty. Please enter again:");
+                phoneNumber = reader.readLine();
+            }
 
             // Send member details to server
             outputStream.writeUTF(name);
