@@ -37,3 +37,39 @@ public class TCPServer {
             e.printStackTrace();
         }
     }
+
+    private static class ClientHandler implements Runnable {
+        private final Socket clientSocket;
+
+        public ClientHandler(Socket clientSocket) {
+            this.clientSocket = clientSocket;
+        }
+
+        @Override
+        public void run() {
+            synchronized (TCPServer.class) { // Synchronize access to the file
+                try (DataInputStream inputStream = new DataInputStream(clientSocket.getInputStream());
+                     DataOutputStream outputStream = new DataOutputStream(clientSocket.getOutputStream())) {
+
+                    // Receive member details from client
+                    String name = inputStream.readUTF();
+                    String address = inputStream.readUTF();
+                    String phoneNumber = inputStream.readUTF();
+
+                    // Log received member details
+                    System.out.println("Received member details: " + name + ", " + address + ", " + phoneNumber);
+
+                    // Save member details to memberlist.txt (append to existing file)
+                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(MEMBER_LIST_TXT_FILE, true))) {
+                        writer.write(name + ", " + address + ", " + phoneNumber + "\n");
+                    }
+
+                    // Send feedback to client
+                    outputStream.writeUTF("Member details saved successfully.");
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
