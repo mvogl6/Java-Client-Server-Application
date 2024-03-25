@@ -44,3 +44,19 @@ public class UDPClient {
             e.printStackTrace();
         }
     }
+    
+    private static void displayMemberList(ArrayList<Member> members) {
+        // Print table header
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.printf("| %-20s | %-30s | %-15s |\n", "Name", "Address", "Phone Number");
+        System.out.println("-----------------------------------------------------------------------------");
+
+        // Print member details
+        for (Member member : members) {
+            System.out.printf("| %-20s | %-30s | %-15s |\n", member.getName(), member.getAddress(), member.getPhoneNumber());
+        }
+
+        // Print table footer
+        System.out.println("-----------------------------------------------------------------------------");
+    }
+}
