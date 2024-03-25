@@ -73,3 +73,26 @@ public class TCPServer {
             }
         }
     }
+
+    private static class ConvertFileTask extends TimerTask {
+        @Override
+        public void run() {
+            synchronized (TCPServer.class) { // Synchronize access to the file
+                // Convert memberlist.txt to memberlistObject
+                try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(MEMBER_LIST_OBJECT_FILE));
+                     BufferedReader reader = new BufferedReader(new FileReader(MEMBER_LIST_TXT_FILE))) {
+
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        String[] parts = line.split(", ");
+                        Member member = new Member(parts[0], parts[1], parts[2]);
+                        objectOutputStream.writeObject(member);
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}
