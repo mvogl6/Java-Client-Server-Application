@@ -42,7 +42,7 @@ public class TCPClient {
     System.out.print("Phone Number: ");
             address = reader.readLine();
             while (address.isEmpty()) {
-                System.out.println("Address cannot be empty. Please enter again:");
+                System.out.println("Phone number cannot be empty. Please enter again:");
                 address = reader.readLine();
             }
             // Prompt user for phone number
