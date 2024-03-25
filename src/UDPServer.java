@@ -49,4 +49,20 @@ public class UDPServer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }static final String MEMBER_LIST_OBJECT_FILE = "memberlistObject";
+    }
+
+    private static ArrayList<Member> readMemberList() {
+        ArrayList<Member> members = new ArrayList<>();
+        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(MEMBER_LIST_OBJECT_FILE))) {
+            while (true) {
+                Member member = (Member) objectInputStream.readObject();
+                members.add(member);
+            }
+        } catch (EOFException e) {
+            // Reached end of file
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return members;
+    }
+}
