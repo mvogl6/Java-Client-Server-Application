@@ -4,8 +4,9 @@
  */
 
 /**
- *
- * @author Matthew
+ *Author: Matthew Vogler
+ *This server receives the request from UPDClient and attempts to read Java Objects from the file "memberlistObject".
+ *The object data is then sent back to the client using DatagramPacket. It uses UDP datagram communication.
  */
 import java.io.*;
 import java.net.*;

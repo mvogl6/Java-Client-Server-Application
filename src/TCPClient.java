@@ -4,8 +4,9 @@
  */
 
 /**
- *
- * @author Matthew Vogler
+ *Author: Matthew Vogler
+ *This program allows users to enter membership information and sends it to the TCPServer.
+ *It uses TCP stream communication for data transfer.
  */
 import java.io.*;
 import java.net.*;

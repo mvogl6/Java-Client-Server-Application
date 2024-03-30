@@ -4,8 +4,9 @@
  */
 
 /**
- *
- * @author Matthew Vogler
+ *Author: Matthew Vogler
+ *This program allows a manager to send a request containing the file name "memberlistObject" to UDPServer
+ *and then prints out member details after receiving a response from the server. It uses UDP datagram communication.
  */
 import java.io.*;
 import java.net.*;

@@ -4,8 +4,9 @@
  */
 
 /**
- *
- * @author Matthew Vogler
+ *Author: Matthew Vogler
+ *This server receives data from TCPClient, writes member details into a text file named "memberlist.txt",
+ *and periodically converts the data into Java Object Serialization and saves it into "memberlistObject" file.
  */
 import java.io.*;
 import java.net.*;

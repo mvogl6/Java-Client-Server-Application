@@ -5,8 +5,10 @@
 
 
 /**
- *
- * @author Matthew Vogler
+ *Author: Matthew Vogler
+ *Represents a member in the membership registration system.
+ *Each member has a name, address, and phone number.
+ *Instances of this class can be serialized to be stored or transferred
  */
 import java.io.Serializable;
 
