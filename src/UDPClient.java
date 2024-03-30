@@ -12,8 +12,9 @@ import java.net.*;
 import java.util.ArrayList;
 
 public class UDPClient {
+    // Server host and port
     private static final String SERVER_HOST = "localhost"; 
-    private static final int SERVER_PORT = 2235; // Port based on student ID
+    private static final int SERVER_PORT = 2235; // Port based on my student ID
 
     public static void main(String[] args) {
         try (DatagramSocket clientSocket = new DatagramSocket()) {
@@ -45,6 +46,7 @@ public class UDPClient {
         }
     }
     
+    // Method to display member list in a tabular format
     private static void displayMemberList(ArrayList<Member> members) {
         // Print table header
         System.out.println("-----------------------------------------------------------------------------");

@@ -11,30 +11,38 @@ import java.io.*;
 import java.net.*;
 
 public class TCPClient {
+    // Server address and port
     private static final String SERVER_ADDRESS = "localhost";
-    private static final int SERVER_PORT = 1135; // Port based on student ID
+    private static final int SERVER_PORT = 1135; // Port based on my student ID
 
     public static void main(String[] args) {
-        try (Socket socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
-             DataInputStream inputStream = new DataInputStream(socket.getInputStream());
-             DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
-             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-
+        try (
+            // Establishing a socket connection to the server
+            Socket socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
+            // Setting up input and output streams for communication
+            DataInputStream inputStream = new DataInputStream(socket.getInputStream());
+            DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))
+        ) {
             String name, address, phoneNumber;
 
             // Prompt user for member details
             System.out.println("Welcome to the Membership Registration System");
             System.out.println("Please enter the following details:");
-
+            
+            // Prompt user for Name
             System.out.print("Name: ");
             name = reader.readLine();
+            // Validate Name input
             while (name.isEmpty()) {
                 System.out.println("Name cannot be empty. Please enter again:");
                 name = reader.readLine();
             }
-
+            
+            // Prompt user for address
             System.out.print("Address: ");
             address = reader.readLine();
+            // Validate Address input
             while (address.isEmpty()) {
                 System.out.println("Address cannot be empty. Please enter again:");
                 address = reader.readLine();

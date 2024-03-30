@@ -13,6 +13,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class TCPServer {
+    // Server port and file names
     private static final int SERVER_PORT = 1135; // Port based on my student ID
     private static final String MEMBER_LIST_TXT_FILE = "memberlist.txt";
     private static final String MEMBER_LIST_OBJECT_FILE = "memberlistObject";
@@ -38,6 +39,7 @@ public class TCPServer {
         }
     }
 
+    // Runnable class to handle client requests
     private static class ClientHandler implements Runnable {
         private final Socket clientSocket;
 
@@ -74,6 +76,7 @@ public class TCPServer {
         }
     }
 
+    // Timer task to convert memberlist.txt to memberlistObject
     private static class ConvertFileTask extends TimerTask {
         @Override
         public void run() {

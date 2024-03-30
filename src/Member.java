@@ -10,18 +10,21 @@
  */
 import java.io.Serializable;
 
+// Serializable interface indicates that instances of this class can be converted into byte streams
 public class Member implements Serializable {
+    // Member fields
     private String name;
     private String address;
     private String phoneNumber;
 
+    // Constructor to initialize member fields
     public Member(String name, String address, String phoneNumber) {
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
     }
 
-    // Getters and setters
+    // Getters and setters for member fields
     public String getName() {
         return name;
     }
@@ -46,7 +49,7 @@ public class Member implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-    // Override toString for printing
+    // Override toString method to provide custom string representation of the object
     @Override
     public String toString() {
         return "Name: " + name + ", Address: " + address + ", Phone Number: " + phoneNumber;
